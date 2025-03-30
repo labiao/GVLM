@@ -30,9 +30,9 @@ split_width = 256
 split_height = 256
 
 count = 0
-outputpath_im1 = './Split_all/t1/'
-outputpath_im2 = './Split_all/t2/'
-outputpath_label = './Split_all/label/'
+outputpath_im1 = r'H:\GVLM_CD\Split_all\t1\\'
+outputpath_im2 = r'H:\GVLM_CD\Split_all\t2\\'
+outputpath_label = r'H:\GVLM_CD\Split_all\label\\'
 
 if not os.path.exists(outputpath_im1):
     os.makedirs(outputpath_im1)
@@ -53,9 +53,12 @@ else:
         os.remove(outputpath_label+i)
 
 for mode in sites_name_list:
-    img1 = "./GVLM Dataset/"+mode+"/im1.png"
-    img2 = "./GVLM Dataset/"+mode+"/im2.png"
-    ref = "./GVLM Dataset/"+mode+"/ref.png"
+    # img1 = "./GVLM Dataset/"+mode+"/im1.png"
+    img1 = os.path.join(r'H:\GVLM_CD', mode, r'im1.png')
+    # img2 = "./GVLM Dataset/"+mode+"/im2.png"
+    img2 = os.path.join(r'H:\GVLM_CD', mode, r'im2.png')
+    # ref = "./GVLM Dataset/"+mode+"/ref.png"
+    ref = os.path.join(r'H:\GVLM_CD', mode, r'ref.png')
     img1 = np.asarray(Image.open(img1))
     img2 = np.asarray(Image.open(img2))
     ref = np.asarray(Image.open(ref))
